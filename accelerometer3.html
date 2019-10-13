@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      let sensor=new Accelerometer();
+      sensor.addEventListener("reading", displayData);
+      sensor.start();
+      let x=10, y=10;
+      function displayData(d){
+          document.getElementById("d1").innerHTML=sensor.x+"<br />"+sensor.y+"<br />"+sensor.z;
+          x+=sensor.x;
+          y+=sensor.y;
+          if(x>300){x=300;}
+          if(y>300){y=300;}
+          if(x<0){x=0;}
+          if(y<0){y=0;}
+          let g=document.getElementById("c1").getContext("2d");
+          g.fillStyle="gray";
+          g.fillRect(0, 0, 300, 300);
+          g.fillStyle="black";
+          g.fillRect(x, y, 5, 5);
+      }
+    </script>
+  </head>
+  <body>
+  <!-- <a href="http://view-source:http://minitorn.tlu.ee/~jaagup/kool/java/kursused/19/johvi/accelerometer3.html">acceleroteter3</a> -->
+     <canvas id="c1" width="300" height="300"></canvas>
+     <div id="d1"></div>
+  </body>
+</html>
