@@ -1,4 +1,3 @@
-/Assets
 /Library
 /Logs
 /obj
@@ -6,3 +5,4 @@
 /ProjectSettings
 /Temp
 Assembly-CSharp.csproj
+snake.sln
